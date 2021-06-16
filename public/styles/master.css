@@ -5,6 +5,10 @@ th {
    width: 17%;
  }
 
+ body {
+   margin: auto;
+ }
+
 .total {
   font-size: 4rem;
 }
