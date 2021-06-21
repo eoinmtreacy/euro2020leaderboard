@@ -5,6 +5,8 @@ const request = require('request')
 
 let app = express()
 
+app.use(express.static(__dirname + '/public'));
+
 app.set('view engine', 'ejs')
 
 let paul = {
@@ -13,6 +15,7 @@ let paul = {
   teamOdds: [6, 36,60,78],
   teamRanks: [],
   teamPoints: [],
+  teamFlag: [],
   playerPoints: 0
 }
 let daniel = {
@@ -21,6 +24,7 @@ let daniel = {
   teamOdds: [6, 18,78,480],
   teamRanks: [],
   teamPoints: [],
+  teamFlag: [],
   playerPoints: 0
 }
 let aoibhin = {
@@ -29,6 +33,7 @@ let aoibhin = {
   teamOdds: [6, 12,60,180],
   teamRanks: [],
   teamPoints: [],
+  teamFlag: [],
   playerPoints: 0
 }
 let shayne = {
@@ -37,6 +42,7 @@ let shayne = {
   teamOdds: [6, 12,60,180],
   teamRanks: [],
   teamPoints: [],
+  teamFlag: [],
   playerPoints: 0
 }
 let roise = {
@@ -45,6 +51,7 @@ let roise = {
   teamOdds: [12, 60,60,240],
   teamRanks: [],
   teamPoints: [],
+  teamFlag: [],
   playerPoints: 0
 }
 let eoin = {
@@ -53,6 +60,7 @@ let eoin = {
   teamOdds: [36, 60,60,78],
   teamRanks: [],
   teamPoints: [],
+  teamFlag: [],
   playerPoints: 0
 }
 
@@ -64,6 +72,18 @@ let calculateT2 = function(players,ranks) {
       for (k = 0; k < ranks.length; k++) {
         if (ranks[k].Name === players[i].teams[j]) {
           players[i].teamRanks[j] = ranks[k].Rank
+        }
+      }
+    }
+  }
+}
+
+let getFlags = function(players,ranks) {
+  for (i = 0; i < players.length; i++) {
+    for (j = 0; j < 4; j++) {
+      for (k = 0; k < ranks.length; k++) {
+        if (ranks[k].Name === players[i].teams[j]) {
+          players[i].teamFlag[j] = ranks[k].Flag
         }
       }
     }
@@ -127,50 +147,60 @@ app.get('/', function (req, res) {
       for (i = 0; i < 4; i++) {
         let team = {
           Name: groupA[i].team.name,
-          Rank: groupA[i].rank
+          Rank: groupA[i].rank,
+          Flag: groupA[i].team.logo,
         }
         teamRanks.push(team)
       }
       for (i = 0; i < 4; i++) {
         let team = {
           Name: groupB[i].team.name,
-          Rank: groupB[i].rank
+          Rank: groupB[i].rank,
+          Flag: groupB[i].team.logo,
         }
         teamRanks.push(team)
       }
       for (i = 0; i < 4; i++) {
         let team = {
           Name: groupC[i].team.name,
-          Rank: groupC[i].rank
+          Rank: groupC[i].rank,
+          Flag: groupC[i].team.logo,
         }
         teamRanks.push(team)
       }
       for (i = 0; i < 4; i++) {
         let team = {
           Name: groupD[i].team.name,
-          Rank: groupD[i].rank
+          Rank: groupD[i].rank,
+          Flag: groupD[i].team.logo,
         }
         teamRanks.push(team)
       }
       for (i = 0; i < 4; i++) {
         let team = {
           Name: groupE[i].team.name,
-          Rank: groupE[i].rank
+          Rank: groupE[i].rank,
+          Flag: groupE[i].team.logo,
         }
         teamRanks.push(team)
       }
       for (i = 0; i < 4; i++) {
         let team = {
           Name: groupF[i].team.name,
-          Rank: groupF[i].rank
+          Rank: groupF[i].rank,
+          Flag: groupF[i].team.logo,
         }
         teamRanks.push(team)
       }
+      // console.log(teamRanks)
+      // console.log(clean.response[0].league.standings[0])
       calculateT2(players,teamRanks)
+      getFlags(players,teamRanks)
       calculatePoints(players)
       calculateTotal(players)
       players.sort(compare)
       res.render('index', {players: players})
+      // console.log(players)
     })
 
     response.on("error", function (error) {

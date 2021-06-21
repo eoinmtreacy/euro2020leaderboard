@@ -1,14 +1,24 @@
-th {
+/* th {
   width: 17%;
 }
  td {
    width: 17%;
- }
+ } */
+
+ /* body {
+   margin: auto;
+ } */
 
  body {
-   margin: auto;
+   font-family: 'Verdana';
+   text-align: center;
  }
 
 .total {
-  font-size: 4rem;
+  font-size: 2rem;
+}
+
+.thumbnail {
+  border-radius: 50%;
+  width: 75%;
 }

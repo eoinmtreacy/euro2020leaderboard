@@ -7,7 +7,7 @@
     <title>Euro 2020 Sweepstakes Leaderboard</title>
   </head>
   <h1>Euro 2020 Sweepstakes Leaderboard</h1>
-  <h2>It <i>should</i> update live! Maybe not! Who knows!</h2>
+  <h2>It <i>should</i> update live, maybe not. Who knows!</h2>
   <h4>'T2' means 'Top 2 in their group, just scroll down</h4>
   <body>
 <% for (i = 0;i < players.length; i++) { %>
@@ -16,18 +16,20 @@
       <colgroup>
         <col span='1' style='width: 5%'>
         <col span='1' style='width: 20%'>
-        <col span='1' style='width: 20%'>
+        <col span='1' style='width: 15%'>
+        <col span='1' style='width: 5%'>
         <col span='1' style='width: 20%'>
         <col span='1' style='width: 20%'>
         <col span='1' style='width: 15%'>
       </colgroup>
+
   <tr>
     <th><%=i + 1%></th>
     <th><%=players[i].name%></th>
     <th>Teams</th>
-    <!-- <th>Flags</th> -->
+    <th></th>
     <th>Odds</th>
-    <th>T2 <i>(1/3 points)</i></th>
+    <th>T2</th>
     <!-- <th>Points</th> -->
     <th>Total
   </tr>
@@ -35,7 +37,7 @@
     <td></td>
     <td></td>
     <td><%=players[i].teams[0]%></td>
-    <!-- <td>Jill</td> -->
+    <td><img class='thumbnail' src='<%=players[i].teamFlag[0]%>'></td>
     <td><%=players[i].teamOdds[0]%></td>
     <td><% if (players[i].teamRanks[0] === 1 || players[i].teamRanks[0] === 2) {%>
           <%=players[i].teamOdds[0] * (1/3) %>
@@ -49,7 +51,7 @@
     <td></td>
     <td></td>
     <td><%=players[i].teams[1]%></td>
-    <!-- <td>Jill</td> -->
+    <td><img class='thumbnail' src='<%=players[i].teamFlag[1]%>'></td>
     <td><%=players[i].teamOdds[1]%></td>
     <td><% if (players[i].teamRanks[1] === 1 || players[i].teamRanks[1] === 2) {%>
           <%=players[i].teamOdds[1] * (1/3) %>
@@ -64,7 +66,7 @@
     <td></td>
     <td></td>
     <td><%=players[i].teams[2]%></td>
-    <!-- <td>Jill</td> -->
+    <td><img class='thumbnail' src='<%=players[i].teamFlag[2]%>'></td>
     <td><%=players[i].teamOdds[2]%></td>
     <td><% if (players[i].teamRanks[2] === 1 || players[i].teamRanks[2] === 2) {%>
           <%=players[i].teamOdds[2] * (1/3) %>
@@ -78,9 +80,9 @@
     <td></td>
     <td></td>
     <td><%=players[i].teams[3]%></td>
-    <!-- <td>Jill</td> -->
+    <td><img class='thumbnail' src='<%=players[i].teamFlag[3]%>'></td>
     <td><%=players[i].teamOdds[3]%></td>
-    <td><% if (players[i].teamRanks[2] === 1 || players[i].teamRanks[2] === 2) {%>
+    <td><% if (players[i].teamRanks[3] === 1 || players[i].teamRanks[3] === 2) {%>
           <%=players[i].teamOdds[3] * (1/3) %>
           <% } else { %>
             <%=players[i].teamOdds[3] * (0) %>
