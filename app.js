@@ -15,6 +15,7 @@ let paul = {
   teamOdds: [6, 36,60,78],
   teamRanks: [],
   teamPoints: [],
+  r16Points: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -24,6 +25,7 @@ let daniel = {
   teamOdds: [6, 18,78,480],
   teamRanks: [],
   teamPoints: [],
+  r16Points: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -33,6 +35,7 @@ let aoibhin = {
   teamOdds: [6, 12,60,180],
   teamRanks: [],
   teamPoints: [],
+  r16Points: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -42,6 +45,7 @@ let shayne = {
   teamOdds: [6, 12,60,180],
   teamRanks: [],
   teamPoints: [],
+  r16Points: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -51,6 +55,7 @@ let roise = {
   teamOdds: [12, 60,60,240],
   teamRanks: [],
   teamPoints: [],
+  r16Points: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -60,6 +65,7 @@ let eoin = {
   teamOdds: [36, 60,60,78],
   teamRanks: [],
   teamPoints: [],
+  r16Points: [6,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -104,7 +110,7 @@ let calculatePoints = function(players) {
 
 let calculateTotal = function(players) {
   for (i = 0; i < players.length; i++) {
-      players[i].playerPoints = players[i].teamPoints[0] + players[i].teamPoints[1] + players[i].teamPoints[2] + players[i].teamPoints[3]
+      players[i].playerPoints = players[i].teamPoints[0] + players[i].teamPoints[1] + players[i].teamPoints[2] + players[i].teamPoints[3] + players[i].r16Points[0] + players[i].r16Points[1] + players[i].r16Points[2] + players[i].r16Points[3]
   }
 }
 
@@ -192,9 +198,7 @@ app.get('/', function (req, res) {
         }
         teamRanks.push(team)
       }
-      // console.log(teamRanks)
       // console.log(clean.response[0].league.standings[0])
-      console.log(clean.response[0].league.standings[6])
       calculateT2(players,teamRanks)
       getFlags(players,teamRanks)
       calculatePoints(players)
