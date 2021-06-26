@@ -194,6 +194,7 @@ app.get('/', function (req, res) {
       }
       // console.log(teamRanks)
       // console.log(clean.response[0].league.standings[0])
+      console.log(clean.response[0].league.standings[6])
       calculateT2(players,teamRanks)
       getFlags(players,teamRanks)
       calculatePoints(players)
