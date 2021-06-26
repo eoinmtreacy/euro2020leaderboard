@@ -35,7 +35,7 @@ let aoibhin = {
   teamOdds: [6, 12,60,180],
   teamRanks: [],
   teamPoints: [],
-  r16Points: [0,0,0,0],
+  r16Points: [0,2,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -55,7 +55,7 @@ let roise = {
   teamOdds: [12, 60,60,240],
   teamRanks: [],
   teamPoints: [],
-  r16Points: [0,0,0,0],
+  r16Points: [2,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
