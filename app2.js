@@ -15,7 +15,7 @@ let paul = {
   teamOdds: [6, 36,60,78],
   teamRanks: [],
   teamPoints: [],
-  r16Points: [1,0,0,0],
+  r16Points: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -120,10 +120,21 @@ function compare(a,b) {
 
 app.get('/', function (req, res) {
 
-  var options = {
+  // var options = {
+  //   'method': 'GET',
+  //   'hostname': 'v3.football.api-sports.io',
+  //   'path': '/teams?league=4&season=2020',
+  //   'headers': {
+  //     'x-rapidapi-host': 'v3.football.api-sports.io',
+  //     'x-rapidapi-key': 'f20ef6a75df4495ad60cabbb56810574'
+  //   },
+  //   'maxRedirects': 20
+  // };
+
+  var options2 = {
     'method': 'GET',
     'hostname': 'v3.football.api-sports.io',
-    'path': '/standings?league=4&season=2020',
+    'path': '/teams?season=2020&league=4&h2h=1-27',
     'headers': {
       'x-rapidapi-host': 'v3.football.api-sports.io',
       'x-rapidapi-key': 'f20ef6a75df4495ad60cabbb56810574'
@@ -131,7 +142,7 @@ app.get('/', function (req, res) {
     'maxRedirects': 20
   };
 
-  var request = https.request(options, function (response) {
+  var request = https.request(options2, function (response) {
     console.log(response.statusCode)
     let chunks =''
 
@@ -141,69 +152,16 @@ app.get('/', function (req, res) {
 
     response.on("end", function() {
       let clean = JSON.parse(chunks)
-      let groupA = (clean.response[0].league.standings[0])
-      let groupB = (clean.response[0].league.standings[1])
-      let groupC = (clean.response[0].league.standings[2])
-      let groupD = (clean.response[0].league.standings[3])
-      let groupE = (clean.response[0].league.standings[4])
-      let groupF = (clean.response[0].league.standings[5])
-
-      let teamRanks = []
-
-      for (i = 0; i < 4; i++) {
-        let team = {
-          Name: groupA[i].team.name,
-          Rank: groupA[i].rank,
-          Flag: groupA[i].team.logo,
-        }
-        teamRanks.push(team)
-      }
-      for (i = 0; i < 4; i++) {
-        let team = {
-          Name: groupB[i].team.name,
-          Rank: groupB[i].rank,
-          Flag: groupB[i].team.logo,
-        }
-        teamRanks.push(team)
-      }
-      for (i = 0; i < 4; i++) {
-        let team = {
-          Name: groupC[i].team.name,
-          Rank: groupC[i].rank,
-          Flag: groupC[i].team.logo,
-        }
-        teamRanks.push(team)
-      }
-      for (i = 0; i < 4; i++) {
-        let team = {
-          Name: groupD[i].team.name,
-          Rank: groupD[i].rank,
-          Flag: groupD[i].team.logo,
-        }
-        teamRanks.push(team)
-      }
-      for (i = 0; i < 4; i++) {
-        let team = {
-          Name: groupE[i].team.name,
-          Rank: groupE[i].rank,
-          Flag: groupE[i].team.logo,
-        }
-        teamRanks.push(team)
-      }
-      for (i = 0; i < 4; i++) {
-        let team = {
-          Name: groupF[i].team.name,
-          Rank: groupF[i].rank,
-          Flag: groupF[i].team.logo,
-        }
-        teamRanks.push(team)
-      }
-      // console.log(clean.response[0].league.standings[0])
-      calculateT2(players,teamRanks)
-      getFlags(players,teamRanks)
-      calculatePoints(players)
-      calculateTotal(players)
-      players.sort(compare)
+      // let teamId = []
+      // for (i = 0; i < (clean.response).length; i++) {
+      //   let grab = {
+      //     team: clean.response[i].team.name,
+      //     id: clean.response[i].team.id
+      //   }
+      //   teamId.push(grab)
+      // }
+      console.log(clean.response[0]);
+      // console.log(teamId);
       res.render('index', {players: players})
       // console.log(players)
     })
