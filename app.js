@@ -25,7 +25,7 @@ let daniel = {
   teamOdds: [6, 18,78,480],
   teamRanks: [],
   teamPoints: [],
-  r16Points: [0,0,16,0],
+  r16Points: [0,0,13,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -65,7 +65,7 @@ let eoin = {
   teamOdds: [36, 60,60,78],
   teamRanks: [],
   teamPoints: [],
-  r16Points: [6,0,0,16],
+  r16Points: [6,0,0,13],
   teamFlag: [],
   playerPoints: 0
 }
@@ -229,5 +229,5 @@ if (port == null || port == "") {
 }
 
 app.listen(port, function() {
-  console.log('Server is runnig on port 3000.')
+  console.log('Server is running on port 3000.')
 })
