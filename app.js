@@ -25,7 +25,7 @@ let daniel = {
   teamOdds: [6, 18,78,480],
   teamRanks: [],
   teamPoints: [],
-  r16Points: [0,0,0,0],
+  r16Points: [0,0,16,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -45,7 +45,7 @@ let shayne = {
   teamOdds: [6, 12,60,180],
   teamRanks: [],
   teamPoints: [],
-  r16Points: [0,0,0,0],
+  r16Points: [0,0,10,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -65,7 +65,7 @@ let eoin = {
   teamOdds: [36, 60,60,78],
   teamRanks: [],
   teamPoints: [],
-  r16Points: [6,0,0,0],
+  r16Points: [6,0,0,16],
   teamFlag: [],
   playerPoints: 0
 }
