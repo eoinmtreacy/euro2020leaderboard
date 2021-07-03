@@ -19,7 +19,8 @@
         <col span='1' style='width: 5%'>
         <col span='1' style='width: 20%'>
         <col span='1' style='width: 10%'>
-        <col span='1' style='width: 10%'>
+        <col span='1' style='width: 5%'>
+        <col span='1' style='width: 5%'>
         <col span='1' style='width: 15%'>
       </colgroup>
 
@@ -31,6 +32,7 @@
     <th>Odds</th>
     <th>T2</th>
     <th>R16</th>
+    <th>QF</th>
     <!-- <th>Points</th> -->
     <th>Total
   </tr>
@@ -47,6 +49,7 @@
           <% } %>
     </td>
     <td><%=players[i].r16Points[0]%></td>
+    <td><%=players[i].qfPoints[0]%></td>
     <!-- <td>50</td> -->
   </tr>
   <tr>
@@ -62,6 +65,7 @@
           <% } %>
     </td>
     <td><%=players[i].r16Points[1]%></td>
+    <td><%=players[i].qfPoints[1]%></td>
     <!-- <td>50</td> -->
     <td class='total'><%=players[i].playerPoints%></td>
   </tr>
@@ -78,6 +82,7 @@
           <% } %>
     </td>
     <td><%=players[i].r16Points[2]%></td>
+    <td><%=players[i].qfPoints[2]%></td>
     <!-- <td>50</td> -->
   </tr>
   <tr>
@@ -93,6 +98,7 @@
           <% } %>
     </td>
     <td><%=players[i].r16Points[3]%></td>
+    <td><%=players[i].qfPoints[3]%></td>
     <!-- <td>50</td> -->
   </tr>
 </table>
