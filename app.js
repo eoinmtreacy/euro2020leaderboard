@@ -16,6 +16,7 @@ let paul = {
   teamRanks: [],
   teamPoints: [],
   r16Points: [1,0,0,0],
+  qfPoints: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -26,6 +27,7 @@ let daniel = {
   teamRanks: [],
   teamPoints: [],
   r16Points: [0,0,13,0],
+  qfPoints: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -36,6 +38,7 @@ let aoibhin = {
   teamRanks: [],
   teamPoints: [],
   r16Points: [0,2,0,0],
+  qfPoints: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -46,6 +49,7 @@ let shayne = {
   teamRanks: [],
   teamPoints: [],
   r16Points: [0,0,10,0],
+  qfPoints: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -56,6 +60,7 @@ let roise = {
   teamRanks: [],
   teamPoints: [],
   r16Points: [2,0,0,0],
+  qfPoints: [0,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -66,6 +71,7 @@ let eoin = {
   teamRanks: [],
   teamPoints: [],
   r16Points: [6,0,0,13],
+  qfPoints: [6,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -110,7 +116,7 @@ let calculatePoints = function(players) {
 
 let calculateTotal = function(players) {
   for (i = 0; i < players.length; i++) {
-      players[i].playerPoints = players[i].teamPoints[0] + players[i].teamPoints[1] + players[i].teamPoints[2] + players[i].teamPoints[3] + players[i].r16Points[0] + players[i].r16Points[1] + players[i].r16Points[2] + players[i].r16Points[3]
+      players[i].playerPoints = players[i].teamPoints[0] + players[i].teamPoints[1] + players[i].teamPoints[2] + players[i].teamPoints[3] + players[i].r16Points[0] + players[i].r16Points[1] + players[i].r16Points[2] + players[i].r16Points[3] + players[i].qfPoints[0] + players[i].qfPoints[1] + players[i].qfPoints[2] + + players[i].qfPoints[3]
   }
 }
 
