@@ -38,7 +38,7 @@ let aoibhin = {
   teamRanks: [],
   teamPoints: [],
   r16Points: [0,2,0,0],
-  qfPoints: [0,0,0,0],
+  qfPoints: [0,2,0,0],
   teamFlag: [],
   playerPoints: 0
 }
@@ -60,7 +60,7 @@ let roise = {
   teamRanks: [],
   teamPoints: [],
   r16Points: [2,0,0,0],
-  qfPoints: [0,0,0,0],
+  qfPoints: [2,0,0,0],
   teamFlag: [],
   playerPoints: 0
 }
